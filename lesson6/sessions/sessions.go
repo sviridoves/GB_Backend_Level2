@@ -63,7 +63,3 @@ func (c *RedisClient) Delete(in SessionID) error {
 func newRedisKey(sessionID string) string {
 	return fmt.Sprintf("sessions: %s", sessionID)
 }
-
-func main() {
-
-}

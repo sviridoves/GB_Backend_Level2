@@ -12,7 +12,7 @@ type RedisClient struct {
 	TTL time.Duration
 }
 
-func NewRedisClient(host, port string) (*RedisClient, error) {
+func NewRedisClient(host, port string, ttl time.Duration) (*RedisClient, error) {
 	client := redis.NewClient(&redis.Options{
 		Addr:     fmt.Sprintf("%s:%s", host, port),
 		Password: "",
@@ -26,6 +26,7 @@ func NewRedisClient(host, port string) (*RedisClient, error) {
 
 	c := &RedisClient{
 		Client: client,
+		TTL:    ttl,
 	}
 
 	return c, nil
